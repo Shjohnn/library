@@ -1,0 +1,43 @@
+<h4>Talabalar royxati</h4>
+<form>
+    <input type="text" name="search">
+    <button>Qidirish</button>
+
+</form>
+{%for talaba in talabalar%}
+<p>{{talaba.id}}.
+    <a href="/talabalar/{{talaba.id}}">{{talaba.ism}}</a>
+    <a href="/talabalar/{{talaba.id}}/delete/">
+        <button>DELETE</button>
+
+    </a>
+        <a href="/talabalar/{{talaba.id}}/update/">
+        <button>UPDATE</button>
+
+    </a>
+</p>
+
+{% endfor %}
+<hr>
+<h3> Yangi talaba qoshish:</h3>
+<form method="post">
+    {%csrf_token%}
+    {{form.as_p}}
+    <button>Qo`shish</button>
+</form>
+<!--<form method="post">-->
+<!--    {% csrf_token %}-->
+<!--    <label>Ism: </label>-->
+<!--    <input type="text" name="ism">-->
+<!--    <br><br>-->
+<!--    <label>Guruh: </label>-->
+<!--    <input type="text" name="guruh">-->
+<!--    <br><br>-->
+<!--    <label>Kurs: </label>-->
+<!--    <input type="number" name="kurs">-->
+<!--    <br><br>-->
+<!--    <label>Kitob soni: </label>-->
+<!--    <input type="number" name="kitob_soni">-->
+<!--    <br><br>-->
+<!--    <button>Qo`shish</button>-->
+<!--</form>-->

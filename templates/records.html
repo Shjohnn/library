@@ -1,0 +1,36 @@
+<h1>Records:</h1>
+<form>
+    <input name="search" type="text">
+    <button>Qidirish</button>
+</form>
+{%for record in records%}
+<p>{{record.talaba}} : {{record.kitob}}
+    <a href="recordlar/{{record_id}}/delete/">
+        <button>Delete</button>
+    </a>
+</p>
+{%endfor%}
+
+
+<hr>
+
+<h3>Yangi record qo`shish:</h3>
+<form method="post">
+    {% csrf_token %}
+    <label>Talaba: </label>
+    <select name="talaba.id">
+        {% for talaba in talabalar %}
+        <option value="talaba.id">{{talaba.ism}}</option>
+        {% endfor %}
+
+    </select>
+    <br><br>
+    <label>Kitob:</label>
+    <select>
+        {%for kitob in kitoblar%}
+            <option value="kitob.id">{{kitob.nom}}</option>
+        {% endfor %}
+    </select>
+    <br><br>
+    <button>Qo`shish</button>
+</form>

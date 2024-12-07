@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Edit {{talaba.ism}}s data
+</h3>
+<hr>
+<form method="post">
+    {% csrf_token%}
+    <label>Name:</label>
+    <input type="text" name ='ism' value="{{talaba.ism}}">
+    <br><br>
+    <label>Group:</label>
+    <input type="text" name="guruh" value="{{talaba.guruh}}">
+    <br><br>
+    <label>Course:</label>
+    <input type="number" name="kurs" value="{{talaba.kurs}}">
+    <br><br>
+    <label>Books:</label>
+    <input type="number" name="kitob_soni" value="{{talaba.kitob_soni}}">
+    <br><br>
+    <button>Update</button>
+
+</form>
+
+
+</body>
+</html>

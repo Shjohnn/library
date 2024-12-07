@@ -1,0 +1,46 @@
+<h1>Mualliflar ro`yxati:</h1>
+<form>
+    <input type="text"name="search">
+    <button>Qidirish</button>
+</form>
+
+
+
+{%for muallif in mualliflar%}
+<p> {{muallif.id}}.{{muallif.ism}}
+    <a href="mualliflar/{{muallif_id}}/delete/">
+        <button>DELETE</button>
+    </a>
+
+</p>
+
+{%endfor%}
+<hr>
+<h3>Yangi muallif qo`shish:</h3>
+
+<form method="post">
+    {% csrf_token %}
+    <label>Ism:</label>
+    <input type="text" name="ism">
+    <br><br>
+    <label>Jins:</label>
+    <select name="jins">
+        <option value="M">Erkak</option>
+        <option value="F">Ayol</option>
+    </select>
+    <br><br>
+    <label>Tug`ilgan sana:</label>
+    <input type="date" name="tugilgan_sana">
+    <br><br>
+    <label>Kitob soni:</label>
+    <input type="number" name="kitob_soni">
+    <br><br>
+    <label>Tirik:</label>
+    <select name="tirik">
+        <option value="True">True</option>
+        <option value="False">False</option>
+    </select>
+    <br><br>
+    <button>Qo`shish</button>
+</form>
+
